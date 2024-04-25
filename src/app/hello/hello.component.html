@@ -2,7 +2,7 @@
 <input type="text" [(ngModel)]="user.name" />
 <input type="text" [(ngModel)]="user.age" />
 <h3>Your name: {{ user.name }}</h3>
-<p>Your name: {{ user.age }}</p>
+<p>Your age: {{ user.age }}</p>
 <div *ngIf="user.age >= 18; else noPG18">Bạn có thể xem nội dung PG-18</div>
 <ng-template #noPG18>
   <div>Bạn không thể xem nội dung PG-18</div>
