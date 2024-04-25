@@ -1,0 +1,35 @@
+<h2>Hello there!</h2>
+<input type="text" [(ngModel)]="user.name" />
+<input type="text" [(ngModel)]="user.age" />
+<h3>Your name: {{ user.name }}</h3>
+<p>Your name: {{ user.age }}</p>
+<div *ngIf="user.age >= 18; else noPG18">Bạn có thể xem nội dung PG-18</div>
+<ng-template #noPG18>
+  <div>Bạn không thể xem nội dung PG-18</div>
+</ng-template>
+
+<!--<div *ngFor="let author of authors; index as idx; count as total">-->
+<!--  ({{idx}})/({{total}}): {{author.id}} - {{author.firstName}}-->
+<!--  {{author.lastName}} - {{author.gender}} - {{author.email}}-->
+<!--</div>-->
+
+<ng-template
+  ngFor
+  [ngForOf]="authors"
+  let-author
+  let-idx="index"
+  let-total="count"
+>
+  <div>
+    ({{idx}})/({{total}}): {{author.id}} - {{author.firstName}}
+    {{author.lastName}} - {{author.gender}} - {{author.email}}
+  </div>
+</ng-template>
+
+<div *ngFor="let author of authors">
+  <ng-template [ngIf]="author.id == 3"> More code </ng-template>
+<!-- Dung ng containner hoac template de khong tao nhieu the div -->
+<!--  <ng-container *ngIf="author.id == 3"> More code </ng-container>-->
+</div>
+
+
